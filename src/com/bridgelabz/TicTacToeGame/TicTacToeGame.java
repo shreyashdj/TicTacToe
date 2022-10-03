@@ -67,16 +67,16 @@ public class TicTacToeGame {
 	 */
 	public void playerMove() {
 		/*
-		 *	taking user input for index
+		 *	taking user input for position
 		 *	if position is empty make move
 		 *	else call method again
 		 */
-		System.out.print("\n Enter index : ");
-		int index = scan.nextInt();
-		if (gameBoard[index] == ' ') {
-			gameBoard[index] = player;
+		System.out.print("\n Enter position : ");
+		int position = scan.nextInt();
+		if (gameBoard[position] == ' ') {
+			gameBoard[position] = player;
 		} else {
-			System.out.println(" Index is not empty");
+			System.out.println(" Position is not empty");
 			playerMove();
 		}
 	}
