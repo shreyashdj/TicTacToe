@@ -28,9 +28,9 @@ public class TicTacToeGame {
 	}
 	
 	/**
-	 *	created printBoard method to print board
+	 *	created showBoard method to print board
 	 */
-	public void printBoard() {
+	public void showBoard() {
 		/*
 		 * 	created simple design of board and printing value of elements in it
 		 */
@@ -76,8 +76,8 @@ public class TicTacToeGame {
 		TicTacToeGame game = new TicTacToeGame();
 		
 		game.initializeBoard();
-		game.initializeBoard();
 		game.chooseLetter();
+		game.showBoard();
 		
 		}
 		
