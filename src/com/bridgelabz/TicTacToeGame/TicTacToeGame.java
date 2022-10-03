@@ -9,11 +9,13 @@ public class TicTacToeGame {
 	 *	created object of class Scanner
 	 * 	initialized char array gameBoard of size 10
 	 * 	taken char type variables player and computer
+	 * 	taken integer type variable option
 	 */
 	Scanner scan = new Scanner(System.in);
 	static char[] gameBoard = new char[10];
 	static char player;
 	static char computer;
+	static int option;
 	
 	/**
 	 * created initializeBoard method to Initialize Board with empty space
@@ -66,18 +68,45 @@ public class TicTacToeGame {
 	 *	created playerMove method in which player can make move
 	 */
 	public void playerMove() {
-		/*
+		/*	calling showBoard method
 		 *	taking user input for position
 		 *	if position is empty make move
 		 *	else call method again
 		 */
-		System.out.print("\n Enter position : ");
+		showBoard();
+		System.out.print("\n Enter Player Position : ");
 		int position = scan.nextInt();
 		if (gameBoard[position] == ' ') {
 			gameBoard[position] = player;
 		} else {
 			System.out.println(" Position is not empty");
 			playerMove();
+		}
+	}
+	
+	/**
+	 *	created computerMove method in which computer can make move
+	 */
+	public void computerMove(){
+		int position = (int) (Math.random()*9)+1;
+		if (gameBoard[position] == ' ') {
+			gameBoard[position] = computer;
+		} else {
+			computerMove();
+		}
+	}
+	
+	/**
+	 *	created method to choose who will play first
+	 */
+	public void toss() {
+		option = (int) (Math.random()*2);
+		if (option == 1) {
+			System.out.println("\n player will play first");
+			playerMove();
+		} else {
+			System.out.println("\n computer will play first");
+			computerMove();
 		}
 	}
 	
@@ -93,13 +122,24 @@ public class TicTacToeGame {
 		System.out.println("\n Welcome to Tic-Tac-Toe Game");
 		
 		TicTacToeGame game = new TicTacToeGame();
-		
+
 		game.initializeBoard();
+		game.showBoard();
 		game.chooseLetter();
-		game.showBoard();
-		game.playerMove();
-		game.showBoard();
+		game.toss();
+		if (option == 1) {
+			for (int i = 1; i <= 4; i++) {
+				game.computerMove();
+				game.playerMove();
+			}
+		} else {
+			for (int i = 1; i <= 4; i++) {
+				game.playerMove();
+				game.computerMove();
+			}
 		}
-		
+		game.showBoard();
 	}
+		
+}
 
