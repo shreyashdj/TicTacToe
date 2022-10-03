@@ -63,6 +63,25 @@ public class TicTacToeGame {
 	}
 	
 	/**
+	 *	created playerMove method in which player can make move
+	 */
+	public void playerMove() {
+		/*
+		 *	taking user input for index
+		 *	if position is empty make move
+		 *	else call method again
+		 */
+		System.out.print("\n Enter index : ");
+		int index = scan.nextInt();
+		if (gameBoard[index] == ' ') {
+			gameBoard[index] = player;
+		} else {
+			System.out.println(" Index is not empty");
+			playerMove();
+		}
+	}
+	
+	/**
 	 *	created main to run program
 	 */
 	public static void main(String[] args) {
@@ -78,7 +97,8 @@ public class TicTacToeGame {
 		game.initializeBoard();
 		game.chooseLetter();
 		game.showBoard();
-		
+		game.playerMove();
+		game.showBoard();
 		}
 		
 	}
