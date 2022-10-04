@@ -34,77 +34,79 @@ public class Move   extends TicTacToeGame{
 		 *	if position is empty make move
 		 *	else call method again
 		 */
-		if (winingMove() == 0) {
-			int position = (int) (Math.random()*9)+1;
-			if (gameBoard[position] == ' ') {
-				System.out.println("\n **** Computer Played ****");
-				gameBoard[position] = computer;
-				showBoard();
-			} else {
-				computerMove();
+		if (winingMove(computer, computer) == 0) {
+			if (winingMove(player, computer) == 0) {
+				int position = (int) (Math.random()*9)+1;
+				if (gameBoard[position] == ' ') {
+					System.out.println("\n **** Computer Played ****");
+					gameBoard[position] = computer;
+					showBoard();
+				} else {
+					computerMove();
+				}
 			}
 		}
 	}
 	
-	public char winingMove() {
-			if 	((gameBoard[1] == ' ' &&  gameBoard[2] == computer && gameBoard[3] == computer) ||
-				   (gameBoard[1] == ' ' &&  gameBoard[4] == computer && gameBoard[7] == computer) ||
-				   (gameBoard[1] == ' ' &&  gameBoard[5] == computer && gameBoard[9] == computer)) {
+	public char winingMove(char char1, char char2) {
+			if 	((gameBoard[1] == ' ' &&  gameBoard[2] == char1 && gameBoard[3] == char1) ||
+				   (gameBoard[1] == ' ' &&  gameBoard[4] == char1 && gameBoard[7] == char1) ||
+				   (gameBoard[1] == ' ' &&  gameBoard[5] == char1 && gameBoard[9] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[1] = computer;
+					gameBoard[1] = char2;
 					showBoard();
 			 return 1;
-		} else if ((gameBoard[3] == ' ' &&  gameBoard[2] == computer && gameBoard[1] == computer) ||
-				   (gameBoard[3] == ' ' &&  gameBoard[5] == computer && gameBoard[7] == computer) ||
-				   (gameBoard[3] == ' ' &&  gameBoard[6] == computer && gameBoard[9] == computer)) {
+		} else if ((gameBoard[3] == ' ' &&  gameBoard[2] == char1 && gameBoard[1] == char1) ||
+				   (gameBoard[3] == ' ' &&  gameBoard[5] == char1 && gameBoard[7] == char1) ||
+				   (gameBoard[3] == ' ' &&  gameBoard[6] == char1 && gameBoard[9] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[3] = computer;
+					gameBoard[3] = char2;
 					showBoard();
 			 return 1;
-		} else if ((gameBoard[7] == ' ' &&  gameBoard[5] == computer && gameBoard[3] == computer) ||
-				   (gameBoard[7] == ' ' &&  gameBoard[4] == computer && gameBoard[1] == computer) ||
-				   (gameBoard[7] == ' ' &&  gameBoard[8] == computer && gameBoard[9] == computer)) {
+		} else if ((gameBoard[7] == ' ' &&  gameBoard[5] == char1 && gameBoard[3] == char1) ||
+				   (gameBoard[7] == ' ' &&  gameBoard[4] == char1 && gameBoard[1] == char1) ||
+				   (gameBoard[7] == ' ' &&  gameBoard[8] == char1 && gameBoard[9] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[7] = computer;
+					gameBoard[7] = char2;
 					showBoard();
 			 return 1;
-		} else if ((gameBoard[9] == ' ' &&  gameBoard[6] == computer && gameBoard[3] == computer) ||
-				   (gameBoard[9] == ' ' &&  gameBoard[8] == computer && gameBoard[7] == computer) ||
-				   (gameBoard[9] == ' ' &&  gameBoard[5] == computer && gameBoard[1] == computer)) {
+		} else if ((gameBoard[9] == ' ' &&  gameBoard[6] == char1 && gameBoard[3] == char1) ||
+				   (gameBoard[9] == ' ' &&  gameBoard[8] == char1 && gameBoard[7] == char1) ||
+				   (gameBoard[9] == ' ' &&  gameBoard[5] == char1 && gameBoard[1] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[9] = computer;
+					gameBoard[9] = char2;
 					showBoard();
 			 return 1;
-		} else if ((gameBoard[2] == ' ' &&  gameBoard[1] == computer && gameBoard[3] == computer) ||
-				   (gameBoard[2] == ' ' &&  gameBoard[5] == computer && gameBoard[8] == computer)) {
+		} else if ((gameBoard[2] == ' ' &&  gameBoard[1] == char1 && gameBoard[3] == char1) ||
+				   (gameBoard[2] == ' ' &&  gameBoard[5] == char1 && gameBoard[8] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[2] = computer;
+					gameBoard[2] = char2;
 					showBoard();
 			 return 1;
-		} else if ((gameBoard[4] == ' ' &&  gameBoard[1] == computer && gameBoard[7] == computer) ||
-				   (gameBoard[4] == ' ' &&  gameBoard[5] == computer && gameBoard[6] == computer)) {
+		} else if ((gameBoard[4] == ' ' &&  gameBoard[1] == char1 && gameBoard[7] == char1) ||
+				   (gameBoard[4] == ' ' &&  gameBoard[5] == char1 && gameBoard[6] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[4] = computer;
+					gameBoard[4] = char2;
 					showBoard();
 			return	1;
-		} else if ((gameBoard[6] == computer &&  gameBoard[5] == computer && gameBoard[4] == ' ') ||
-				   (gameBoard[6] == computer &&  gameBoard[9] == computer && gameBoard[3] == ' ')) {
+		} else if ((gameBoard[6] == ' ' &&  gameBoard[5] == char1 && gameBoard[4] == char1) ||
+				   (gameBoard[6] == ' ' &&  gameBoard[9] == char1 && gameBoard[3] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[6] = computer;
+					gameBoard[6] = char2;
 					showBoard();
 			 return 1;
-		} else if ((gameBoard[8] == ' ' &&  gameBoard[2] == computer && gameBoard[5] == computer) ||
-				   (gameBoard[8] == ' ' &&  gameBoard[7] == computer && gameBoard[9] == computer)) {
+		} else if ((gameBoard[8] == ' ' &&  gameBoard[2] == char1 && gameBoard[5] == char1) ||
+				   (gameBoard[8] == ' ' &&  gameBoard[7] == char1 && gameBoard[9] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[8] = computer;
+					gameBoard[8] = char2;
 					showBoard();
 			return 1;
-		} else if ((gameBoard[5] == ' ' &&  gameBoard[2] == computer && gameBoard[8] == computer) ||
-				   (gameBoard[5] == ' ' &&  gameBoard[4] == computer && gameBoard[6] == computer) ||
-				   (gameBoard[5] == ' ' &&  gameBoard[7] == computer && gameBoard[3] == computer) ||
-				   (gameBoard[5] == ' ' &&  gameBoard[5] == computer && gameBoard[1] == computer)) {
+		} else if ((gameBoard[5] == ' ' &&  gameBoard[2] == char1 && gameBoard[8] == char1) ||
+				   (gameBoard[5] == ' ' &&  gameBoard[4] == char1 && gameBoard[6] == char1) ||
+				   (gameBoard[5] == ' ' &&  gameBoard[7] == char1 && gameBoard[3] == char1) ||
+				   (gameBoard[5] == ' ' &&  gameBoard[5] == char1 && gameBoard[1] == char1)) {
 					System.out.println("\n **** Computer Played ****");
-					gameBoard[5] = computer;
+					gameBoard[5] = char2;
 					showBoard();
 			 return 1;
 		} else {
