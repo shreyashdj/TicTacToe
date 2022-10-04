@@ -17,8 +17,6 @@ public class TicTacToeGame {
 	static char computer;
 	static int option;
 	
-	
-	
 	/**
 	 *	created showBoard method to print board
 	 */
@@ -49,8 +47,6 @@ public class TicTacToeGame {
 		}
 	}
 	
-	
-	
 	/**
 	 *	created chooseLetter method to assign letters to player and computer
 	 */
@@ -70,6 +66,9 @@ public class TicTacToeGame {
 		System.out.println("\n Player : " + player + "   and   Computer : " + computer);
 	}
 	
+	/**
+	 * 
+	 */
 	public void changeTurn() {
 		showBoard();
 		if(option == 1) {
