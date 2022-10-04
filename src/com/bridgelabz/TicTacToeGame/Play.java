@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.bridgelabz.TicTacToeGame;
 
 /**
@@ -11,6 +8,11 @@ public class Play  extends Move{
 	 *	created check method to check winner or tie or change turn
 	 */
 	public void check(){
+		/*
+		 *	checking player or computer wins or tie
+		 *	then asking to play again or exit
+		 *	if choose to play again then call initializeBoard, changeTurn, play, methods
+		 */
 		if ((gameBoard[1] + gameBoard[2] + gameBoard[3]) == 'x'+'x'+'x' ||
 			(gameBoard[4] + gameBoard[5] + gameBoard[6]) == 'x'+'x'+'x' ||
 			(gameBoard[7] + gameBoard[8] + gameBoard[9]) == 'x'+'x'+'x' ||
@@ -30,7 +32,7 @@ public class Play  extends Move{
 			if (choice == 1) {
 				initializeBoard();
 				changeTurn();
-				play();
+				playGame();
 			} else {
 				System.out.println("\n **** Thanks for Playing ****");
 				System.exit(0);
@@ -56,7 +58,7 @@ public class Play  extends Move{
 				if (choice == 1) {
 					initializeBoard();
 					changeTurn();
-					play();
+					playGame();
 				} else {
 					System.out.println("\n **** Thanks for Playing ****");
 					System.exit(0);;
@@ -72,7 +74,7 @@ public class Play  extends Move{
 				if (choice == 1) {
 					initializeBoard();
 					changeTurn();
-					play();
+					playGame();
 				} else {
 					System.out.println("\n **** Thanks for Playing ****");
 					System.exit(0);;
@@ -80,8 +82,15 @@ public class Play  extends Move{
 			}	
 	}
 
-	public void play() {
-		if (option == 1) {
+	/**
+	 *	created play method to play game in specific sequence
+	 */
+	public void playGame() {
+		/*
+		 * 	depend on who will play first, created
+		 *	specific sequence of player and computer move
+		 */
+		if (turn == 1) {
 			playerMove();
 			check();
 			for (int i = 1; i <= 4; i++) {
@@ -101,4 +110,5 @@ public class Play  extends Move{
 			}
 		}
 	}
+	
 }

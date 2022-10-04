@@ -9,13 +9,13 @@ public class TicTacToeGame {
 	 *	created object of class Scanner
 	 * 	initialized char array gameBoard of size 10
 	 * 	taken char type variables player and computer
-	 * 	taken integer type variable option
+	 * 	taken integer turn to store who play first
 	 */
 	Scanner scan = new Scanner(System.in);
 	static char[] gameBoard = new char[10];
 	static char player;
 	static char computer;
-	static int option;
+	static int turn;
 	
 	/**
 	 *	created showBoard method to print board
@@ -23,6 +23,7 @@ public class TicTacToeGame {
 	public void showBoard() {
 		/*
 		 * 	created simple design of board and printing value of elements in it
+		 * 	and at right side showing sample position numbers of board
 		 */
 		System.out.println("\n *** Current Board ***  |  *** Position Number ***");
 		System.out.println("     -------------      |       -------------");
@@ -67,15 +68,15 @@ public class TicTacToeGame {
 	}
 	
 	/**
-	 * 
+	 *	created changeTurn method to change turn of game
 	 */
 	public void changeTurn() {
 		showBoard();
-		if(option == 1) {
-			option = 0;
+		if(turn == 1) {
+			turn = 0;
 			System.out.println("\n **** Computer will play first ****");
 		} else {
-			option = 1;
+			turn = 1;
 			System.out.println("\n **** Player will play first ****");
 		}
 	}
@@ -90,8 +91,8 @@ public class TicTacToeGame {
 		 *	else computer will make first move
 		 */
 		showBoard();
-		option = (int) (Math.random()*2);
-		if (option == 1) {
+		turn = (int) (Math.random()*2);
+		if (turn == 1) {
 			System.out.println("\n **** Player will play first ****");
 		} else {
 			System.out.println("\n **** Computer will play first ****");
