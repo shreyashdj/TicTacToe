@@ -36,13 +36,15 @@ public class Move   extends TicTacToeGame{
 		 */
 		if (winingMove(computer, computer) == 0) {
 			if (winingMove(player, computer) == 0) {
-				int position = (int) (Math.random()*9)+1;
-				if (gameBoard[position] == ' ') {
-					System.out.println("\n **** Computer Played ****");
-					gameBoard[position] = computer;
-					showBoard();
-				} else {
-					computerMove();
+				if (checkCorners() == false) {
+					int position = (int) (Math.random()*9)+1;
+					if (gameBoard[position] == ' ') {
+						System.out.println("\n **** Computer Played ****");
+						gameBoard[position] = computer;
+						showBoard();
+					} else {
+						computerMove();
+					}
 				}
 			}
 		}
@@ -114,6 +116,20 @@ public class Move   extends TicTacToeGame{
 			return 0;
 		}
 			
+	}
+	
+	public boolean checkCorners() {
+		boolean played = false;
+		for (int i = 1; i <= 9; i=i+2) {
+			if(i != 5 && gameBoard[i] == ' ' ) {
+				System.out.println("\n **** Computer Played ****");
+				gameBoard[i] = computer;
+				showBoard();
+				played = true;
+				break;
+			} 
+		}
+		return played;
 	}
 
 }
